@@ -2,11 +2,9 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource()
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
 class User
@@ -19,7 +17,7 @@ class User
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $numCompte;
 
@@ -42,12 +40,6 @@ class User
      * @ORM\Column(type="string", length=255)
      */
     private $adresse;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\partenaire", inversedBy="iduser")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $partenaire;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -115,18 +107,6 @@ class User
     public function setAdresse(string $adresse): self
     {
         $this->adresse = $adresse;
-
-        return $this;
-    }
-
-    public function getPartenaire(): ?partenaire
-    {
-        return $this->partenaire;
-    }
-
-    public function setPartenaire(?partenaire $partenaire): self
-    {
-        $this->partenaire = $partenaire;
 
         return $this;
     }

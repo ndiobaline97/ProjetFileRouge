@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -26,19 +24,9 @@ class Compte
     private $numCompte;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $solde;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Depot", mappedBy="iddepot", orphanRemoval=true)
-     */
-    private $depot;
-
-    public function __construct()
-    {
-        $this->depot = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -65,37 +53,6 @@ class Compte
     public function setSolde(int $solde): self
     {
         $this->solde = $solde;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Depot[]
-     */
-    public function getDepot(): Collection
-    {
-        return $this->depot;
-    }
-
-    public function addDepot(Depot $depot): self
-    {
-        if (!$this->depot->contains($depot)) {
-            $this->depot[] = $depot;
-            $depot->setIddepot($this);
-        }
-
-        return $this;
-    }
-
-    public function removeDepot(Depot $depot): self
-    {
-        if ($this->depot->contains($depot)) {
-            $this->depot->removeElement($depot);
-            // set the owning side to null (unless already changed)
-            if ($depot->getIddepot() === $this) {
-                $depot->setIddepot(null);
-            }
-        }
 
         return $this;
     }

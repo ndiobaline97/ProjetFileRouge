@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,14 +19,14 @@ class Partenaire
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="bigint")
      */
     private $numCompte;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nomComplet;
+    private $nomEntreprise;
 
     /**
      * @ORM\Column(type="integer")
@@ -46,24 +44,25 @@ class Partenaire
     private $adresse;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $nin;
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="partenaire", orphanRemoval=true)
-     */
-    private $iduser;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $statut;
 
-    public function __construct()
-    {
-        $this->systeme = new ArrayCollection();
-        $this->iduser = new ArrayCollection();
-    }
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $ninea;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\depot")
+     */
+    private $depot;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\user")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
 
     public function getId(): ?int
     {
@@ -82,14 +81,14 @@ class Partenaire
         return $this;
     }
 
-    public function getNomComplet(): ?string
+    public function getNomEntreprise(): ?string
     {
-        return $this->nomComplet;
+        return $this->nomEntreprise;
     }
 
-    public function setNomComplet(string $nomComplet): self
+    public function setNomEntreprise(string $nomEntreprise): self
     {
-        $this->nomComplet = $nomComplet;
+        $this->nomEntreprise = $nomEntreprise;
 
         return $this;
     }
@@ -129,51 +128,6 @@ class Partenaire
 
         return $this;
     }
-/**
- * 
- */
-    public function getNin(): ?int
-    {
-        return $this->nin;
-    }
-
-    public function setNin(int $nin): self
-    {
-        $this->nin = $nin;
-
-        return $this;
-    }
-    
-    /**
-     * @return Collection|User[]
-     */
-    public function getIduser(): Collection
-    {
-        return $this->iduser;
-    }
-
-    public function addIduser(User $iduser): self
-    {
-        if (!$this->iduser->contains($iduser)) {
-            $this->iduser[] = $iduser;
-            $iduser->setPartenaire($this);
-        }
-
-        return $this;
-    }
-
-    public function removeIduser(User $iduser): self
-    {
-        if ($this->iduser->contains($iduser)) {
-            $this->iduser->removeElement($iduser);
-            // set the owning side to null (unless already changed)
-            if ($iduser->getPartenaire() === $this) {
-                $iduser->setPartenaire(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getStatut(): ?string
     {
@@ -183,6 +137,42 @@ class Partenaire
     public function setStatut(string $statut): self
     {
         $this->statut = $statut;
+
+        return $this;
+    }
+
+    public function getNinea(): ?int
+    {
+        return $this->ninea;
+    }
+
+    public function setNinea(int $ninea): self
+    {
+        $this->ninea = $ninea;
+
+        return $this;
+    }
+
+    public function getDepot(): ?depot
+    {
+        return $this->depot;
+    }
+
+    public function setDepot(?depot $depot): self
+    {
+        $this->depot = $depot;
+
+        return $this;
+    }
+
+    public function getUser(): ?user
+    {
+        return $this->user;
+    }
+
+    public function setUser(?user $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

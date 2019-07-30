@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+use App\Entity\compte;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -19,36 +19,24 @@ class Depot
     private $id;
 
     /**
+     * @ORM\Column(type="bigint")
+     */
+    private $montant;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     private $dateDepot;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $montant;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Compte", inversedBy="depot")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Compte")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $iddepot;
+    private $compte;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getDateDepot(): ?\DateTimeInterface
-    {
-        return $this->dateDepot;
-    }
-
-    public function setDateDepot(\DateTimeInterface $dateDepot): self
-    {
-        $this->dateDepot = $dateDepot;
-
-        return $this;
     }
 
     public function getMontant(): ?int
@@ -63,14 +51,26 @@ class Depot
         return $this;
     }
 
-    public function getIddepot(): ?Compte
+    public function getDateDepot(): ?\DateTimeInterface
     {
-        return $this->iddepot;
+        return $this->dateDepot;
     }
 
-    public function setIddepot(?Compte $iddepot): self
+    public function setDateDepot(\DateTimeInterface $dateDepot): self
     {
-        $this->iddepot = $iddepot;
+        $this->dateDepot = $dateDepot;
+
+        return $this;
+    }
+
+    public function getCompte(): ?compte
+    {
+        return $this->compte;
+    }
+
+    public function setCompte(?compte $compte): self
+    {
+        $this->compte = $compte;
 
         return $this;
     }
