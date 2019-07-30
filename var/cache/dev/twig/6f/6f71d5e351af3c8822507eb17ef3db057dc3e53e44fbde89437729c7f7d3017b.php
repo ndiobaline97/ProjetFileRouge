@@ -77,59 +77,64 @@ class __TwigTemplate_06a0032bd0d5bc1c58f4b836ed48936a5501512f9730643886b2be500e5
             <tr>
                 <th>Id</th>
                 <th>NumCompte</th>
-                <th>NomComplet</th>
+                <th>NomEntreprise</th>
                 <th>Telephone</th>
                 <th>Email</th>
                 <th>Adresse</th>
-                <th>Nin</th>
+                <th>Statut</th>
+                <th>Ninea</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         ";
-        // line 22
+        // line 23
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["partenaires"]) || array_key_exists("partenaires", $context) ? $context["partenaires"] : (function () { throw new RuntimeError('Variable "partenaires" does not exist.', 22, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["partenaires"]) || array_key_exists("partenaires", $context) ? $context["partenaires"] : (function () { throw new RuntimeError('Variable "partenaires" does not exist.', 23, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["partenaire"]) {
-            // line 23
+            // line 24
             echo "            <tr>
                 <td>";
-            // line 24
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["partenaire"], "id", [], "any", false, false, false, 24), "html", null, true);
-            echo "</td>
-                <td>";
             // line 25
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["partenaire"], "numCompte", [], "any", false, false, false, 25), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["partenaire"], "id", [], "any", false, false, false, 25), "html", null, true);
             echo "</td>
                 <td>";
             // line 26
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["partenaire"], "nomComplet", [], "any", false, false, false, 26), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["partenaire"], "numCompte", [], "any", false, false, false, 26), "html", null, true);
             echo "</td>
                 <td>";
             // line 27
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["partenaire"], "telephone", [], "any", false, false, false, 27), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["partenaire"], "nomEntreprise", [], "any", false, false, false, 27), "html", null, true);
             echo "</td>
                 <td>";
             // line 28
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["partenaire"], "email", [], "any", false, false, false, 28), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["partenaire"], "telephone", [], "any", false, false, false, 28), "html", null, true);
             echo "</td>
                 <td>";
             // line 29
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["partenaire"], "adresse", [], "any", false, false, false, 29), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["partenaire"], "email", [], "any", false, false, false, 29), "html", null, true);
             echo "</td>
                 <td>";
             // line 30
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["partenaire"], "nin", [], "any", false, false, false, 30), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["partenaire"], "adresse", [], "any", false, false, false, 30), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 31
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["partenaire"], "statut", [], "any", false, false, false, 31), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 32
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["partenaire"], "ninea", [], "any", false, false, false, 32), "html", null, true);
             echo "</td>
                 <td>
                     <a href=\"";
-            // line 32
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("partenaire_show", ["id" => twig_get_attribute($this->env, $this->source, $context["partenaire"], "id", [], "any", false, false, false, 32)]), "html", null, true);
+            // line 34
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("partenaire_show", ["id" => twig_get_attribute($this->env, $this->source, $context["partenaire"], "id", [], "any", false, false, false, 34)]), "html", null, true);
             echo "\">show</a>
                     <a href=\"";
-            // line 33
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("partenaire_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["partenaire"], "id", [], "any", false, false, false, 33)]), "html", null, true);
+            // line 35
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("partenaire_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["partenaire"], "id", [], "any", false, false, false, 35)]), "html", null, true);
             echo "\">edit</a>
                 </td>
             </tr>
@@ -137,21 +142,21 @@ class __TwigTemplate_06a0032bd0d5bc1c58f4b836ed48936a5501512f9730643886b2be500e5
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 37
+            // line 39
             echo "            <tr>
-                <td colspan=\"8\">no records found</td>
+                <td colspan=\"9\">no records found</td>
             </tr>
         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['partenaire'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 41
+        // line 43
         echo "        </tbody>
     </table>
 
     <a href=\"";
-        // line 44
+        // line 46
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("partenaire_new");
         echo "\">Create new</a>
 ";
@@ -172,7 +177,7 @@ class __TwigTemplate_06a0032bd0d5bc1c58f4b836ed48936a5501512f9730643886b2be500e5
 
     public function getDebugInfo()
     {
-        return array (  155 => 44,  150 => 41,  141 => 37,  132 => 33,  128 => 32,  123 => 30,  119 => 29,  115 => 28,  111 => 27,  107 => 26,  103 => 25,  99 => 24,  96 => 23,  91 => 22,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
+        return array (  160 => 46,  155 => 43,  146 => 39,  137 => 35,  133 => 34,  128 => 32,  124 => 31,  120 => 30,  116 => 29,  112 => 28,  108 => 27,  104 => 26,  100 => 25,  97 => 24,  92 => 23,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -189,11 +194,12 @@ class __TwigTemplate_06a0032bd0d5bc1c58f4b836ed48936a5501512f9730643886b2be500e5
             <tr>
                 <th>Id</th>
                 <th>NumCompte</th>
-                <th>NomComplet</th>
+                <th>NomEntreprise</th>
                 <th>Telephone</th>
                 <th>Email</th>
                 <th>Adresse</th>
-                <th>Nin</th>
+                <th>Statut</th>
+                <th>Ninea</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -202,11 +208,12 @@ class __TwigTemplate_06a0032bd0d5bc1c58f4b836ed48936a5501512f9730643886b2be500e5
             <tr>
                 <td>{{ partenaire.id }}</td>
                 <td>{{ partenaire.numCompte }}</td>
-                <td>{{ partenaire.nomComplet }}</td>
+                <td>{{ partenaire.nomEntreprise }}</td>
                 <td>{{ partenaire.telephone }}</td>
                 <td>{{ partenaire.email }}</td>
                 <td>{{ partenaire.adresse }}</td>
-                <td>{{ partenaire.nin }}</td>
+                <td>{{ partenaire.statut }}</td>
+                <td>{{ partenaire.ninea }}</td>
                 <td>
                     <a href=\"{{ path('partenaire_show', {'id': partenaire.id}) }}\">show</a>
                     <a href=\"{{ path('partenaire_edit', {'id': partenaire.id}) }}\">edit</a>
@@ -214,7 +221,7 @@ class __TwigTemplate_06a0032bd0d5bc1c58f4b836ed48936a5501512f9730643886b2be500e5
             </tr>
         {% else %}
             <tr>
-                <td colspan=\"8\">no records found</td>
+                <td colspan=\"9\">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

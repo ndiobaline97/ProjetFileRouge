@@ -16,22 +16,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 /**
  * @Route("/api")
  */
-
 class DepotController extends AbstractController
 {
     /**
      * @Route("/", name="depot")
      */
     public function index()
-    {
-        return $this->render('depot/index.html.twig', [
-            'controller_name' => 'DepotController',
-        ]);
-    }
     
      /**
      * @Route("/depot", name="faire_depot" ,methods={"POST"})
      */
+    
     public function depot(Request $request,SerializerInterface $serializer,ValidatorInterface $validator,EntityManagerInterface $entityManager)
     {
         $values = json_decode($request->getContent());

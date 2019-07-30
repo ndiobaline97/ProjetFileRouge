@@ -176,4 +176,37 @@ class Partenaire
 
         return $this;
     }
+
+  
+
+    /**
+     * @return Collection|Depot[]
+     */
+    public function getDepot(): Collection
+    {
+        return $this->depot;
+    }
+
+    public function addDepot(Depot $depot): self
+    {
+        if (!$this->depot->contains($depot)) {
+            $this->depot[] = $depot;
+            $depot->setPartenaire($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDepot(Depot $depot): self
+    {
+        if ($this->depot->contains($depot)) {
+            $this->depot->removeElement($depot);
+            // set the owning side to null (unless already changed)
+            if ($depot->getPartenaire() === $this) {
+                $depot->setPartenaire(null);
+            }
+        }
+
+        return $this;
+    }
 }

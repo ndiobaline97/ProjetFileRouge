@@ -89,10 +89,10 @@ class __TwigTemplate_675b1ee9dca1eadb42d609c5f5938a645ab89cf3f790464807578b1d847
         echo "</td>
             </tr>
             <tr>
-                <th>NomComplet</th>
+                <th>NomEntreprise</th>
                 <td>";
         // line 20
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["partenaire"]) || array_key_exists("partenaire", $context) ? $context["partenaire"] : (function () { throw new RuntimeError('Variable "partenaire" does not exist.', 20, $this->source); })()), "nomComplet", [], "any", false, false, false, 20), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["partenaire"]) || array_key_exists("partenaire", $context) ? $context["partenaire"] : (function () { throw new RuntimeError('Variable "partenaire" does not exist.', 20, $this->source); })()), "nomEntreprise", [], "any", false, false, false, 20), "html", null, true);
         echo "</td>
             </tr>
             <tr>
@@ -117,27 +117,34 @@ class __TwigTemplate_675b1ee9dca1eadb42d609c5f5938a645ab89cf3f790464807578b1d847
         echo "</td>
             </tr>
             <tr>
-                <th>Nin</th>
+                <th>Statut</th>
                 <td>";
         // line 36
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["partenaire"]) || array_key_exists("partenaire", $context) ? $context["partenaire"] : (function () { throw new RuntimeError('Variable "partenaire" does not exist.', 36, $this->source); })()), "nin", [], "any", false, false, false, 36), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["partenaire"]) || array_key_exists("partenaire", $context) ? $context["partenaire"] : (function () { throw new RuntimeError('Variable "partenaire" does not exist.', 36, $this->source); })()), "statut", [], "any", false, false, false, 36), "html", null, true);
+        echo "</td>
+            </tr>
+            <tr>
+                <th>Ninea</th>
+                <td>";
+        // line 40
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["partenaire"]) || array_key_exists("partenaire", $context) ? $context["partenaire"] : (function () { throw new RuntimeError('Variable "partenaire" does not exist.', 40, $this->source); })()), "ninea", [], "any", false, false, false, 40), "html", null, true);
         echo "</td>
             </tr>
         </tbody>
     </table>
 
     <a href=\"";
-        // line 41
+        // line 45
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("partenaire_index");
         echo "\">back to list</a>
 
     <a href=\"";
-        // line 43
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("partenaire_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["partenaire"]) || array_key_exists("partenaire", $context) ? $context["partenaire"] : (function () { throw new RuntimeError('Variable "partenaire" does not exist.', 43, $this->source); })()), "id", [], "any", false, false, false, 43)]), "html", null, true);
+        // line 47
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("partenaire_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["partenaire"]) || array_key_exists("partenaire", $context) ? $context["partenaire"] : (function () { throw new RuntimeError('Variable "partenaire" does not exist.', 47, $this->source); })()), "id", [], "any", false, false, false, 47)]), "html", null, true);
         echo "\">edit</a>
 
     ";
-        // line 45
+        // line 49
         echo twig_include($this->env, $context, "partenaire/_delete_form.html.twig");
         echo "
 ";
@@ -158,7 +165,7 @@ class __TwigTemplate_675b1ee9dca1eadb42d609c5f5938a645ab89cf3f790464807578b1d847
 
     public function getDebugInfo()
     {
-        return array (  141 => 45,  136 => 43,  131 => 41,  123 => 36,  116 => 32,  109 => 28,  102 => 24,  95 => 20,  88 => 16,  81 => 12,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
+        return array (  148 => 49,  143 => 47,  138 => 45,  130 => 40,  123 => 36,  116 => 32,  109 => 28,  102 => 24,  95 => 20,  88 => 16,  81 => 12,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -181,8 +188,8 @@ class __TwigTemplate_675b1ee9dca1eadb42d609c5f5938a645ab89cf3f790464807578b1d847
                 <td>{{ partenaire.numCompte }}</td>
             </tr>
             <tr>
-                <th>NomComplet</th>
-                <td>{{ partenaire.nomComplet }}</td>
+                <th>NomEntreprise</th>
+                <td>{{ partenaire.nomEntreprise }}</td>
             </tr>
             <tr>
                 <th>Telephone</th>
@@ -197,8 +204,12 @@ class __TwigTemplate_675b1ee9dca1eadb42d609c5f5938a645ab89cf3f790464807578b1d847
                 <td>{{ partenaire.adresse }}</td>
             </tr>
             <tr>
-                <th>Nin</th>
-                <td>{{ partenaire.nin }}</td>
+                <th>Statut</th>
+                <td>{{ partenaire.statut }}</td>
+            </tr>
+            <tr>
+                <th>Ninea</th>
+                <td>{{ partenaire.ninea }}</td>
             </tr>
         </tbody>
     </table>
