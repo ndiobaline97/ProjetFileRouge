@@ -113,6 +113,24 @@
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
+    "lcobucci/jwt": {
+        "version": "3.3.1"
+    },
+    "lexik/jwt-authentication-bundle": {
+        "version": "2.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "2.5",
+            "ref": "5b2157bcd5778166a5696e42f552ad36529a07a6"
+        },
+        "files": [
+            "config/packages/lexik_jwt_authentication.yaml"
+        ]
+    },
+    "namshi/jose": {
+        "version": "7.2.3"
+    },
     "nelmio/cors-bundle": {
         "version": "1.5",
         "recipe": {
@@ -170,6 +188,9 @@
     "symfony/asset": {
         "version": "v4.3.2"
     },
+    "symfony/browser-kit": {
+        "version": "v4.3.3"
+    },
     "symfony/cache": {
         "version": "v4.3.2"
     },
@@ -192,6 +213,9 @@
             "config/bootstrap.php"
         ]
     },
+    "symfony/css-selector": {
+        "version": "v4.3.3"
+    },
     "symfony/debug": {
         "version": "v4.3.2"
     },
@@ -200,6 +224,9 @@
     },
     "symfony/doctrine-bridge": {
         "version": "v4.3.2"
+    },
+    "symfony/dom-crawler": {
+        "version": "v4.3.3"
     },
     "symfony/dotenv": {
         "version": "v4.3.2"
@@ -279,6 +306,22 @@
     },
     "symfony/options-resolver": {
         "version": "v4.3.2"
+    },
+    "symfony/phpunit-bridge": {
+        "version": "4.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "b0582341f1df39aaf3a9a866cdbe49937da35984"
+        },
+        "files": [
+            ".env.test",
+            "bin/phpunit",
+            "config/bootstrap.php",
+            "phpunit.xml.dist",
+            "tests/.gitignore"
+        ]
     },
     "symfony/polyfill-intl-icu": {
         "version": "v1.11.0"

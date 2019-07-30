@@ -28,7 +28,7 @@ class Partenaire
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nomComplet;
+    private $nomEntreprise;
 
     /**
      * @ORM\Column(type="integer")
@@ -46,9 +46,9 @@ class Partenaire
     private $adresse;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
-    private $nin;
+    private $ninea;
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="partenaire", orphanRemoval=true)
      */
@@ -59,10 +59,18 @@ class Partenaire
      */
     private $statut;
 
+   
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Depot", mappedBy="partenaire", orphanRemoval=true)
+     */
+    private $depot;
+
     public function __construct()
     {
         $this->systeme = new ArrayCollection();
         $this->iduser = new ArrayCollection();
+        $this->depot = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -82,14 +90,14 @@ class Partenaire
         return $this;
     }
 
-    public function getNomComplet(): ?string
+    public function getNomEntreprise(): ?string
     {
-        return $this->nomComplet;
+        return $this->nomEntreprise;
     }
 
-    public function setNomComplet(string $nomComplet): self
+    public function setNomEntreprise(string $nomEntreprise): self
     {
-        $this->nomComplet = $nomComplet;
+        $this->nomEntreprise = $nomEntreprise;
 
         return $this;
     }
@@ -132,14 +140,14 @@ class Partenaire
 /**
  * 
  */
-    public function getNin(): ?int
+    public function getNinea(): ?string
     {
-        return $this->nin;
+        return $this->ninea;
     }
 
-    public function setNin(int $nin): self
+    public function setNinea(string $ninea): self
     {
-        $this->nin = $nin;
+        $this->ninea = $ninea;
 
         return $this;
     }
@@ -183,6 +191,39 @@ class Partenaire
     public function setStatut(string $statut): self
     {
         $this->statut = $statut;
+
+        return $this;
+    }
+
+  
+
+    /**
+     * @return Collection|Depot[]
+     */
+    public function getDepot(): Collection
+    {
+        return $this->depot;
+    }
+
+    public function addDepot(Depot $depot): self
+    {
+        if (!$this->depot->contains($depot)) {
+            $this->depot[] = $depot;
+            $depot->setPartenaire($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDepot(Depot $depot): self
+    {
+        if ($this->depot->contains($depot)) {
+            $this->depot->removeElement($depot);
+            // set the owning side to null (unless already changed)
+            if ($depot->getPartenaire() === $this) {
+                $depot->setPartenaire(null);
+            }
+        }
 
         return $this;
     }

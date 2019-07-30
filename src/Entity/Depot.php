@@ -32,7 +32,13 @@ class Depot
      * @ORM\ManyToOne(targetEntity="App\Entity\Compte", inversedBy="depot")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $iddepot;
+    private $idcompte;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Partenaire", inversedBy="depot")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $partenaire;
 
     public function getId(): ?int
     {
@@ -65,12 +71,24 @@ class Depot
 
     public function getIddepot(): ?Compte
     {
-        return $this->iddepot;
+        return $this->idcompte;
     }
 
-    public function setIddepot(?Compte $iddepot): self
+    public function setIddepot(?Compte $idcompte): self
     {
-        $this->iddepot = $iddepot;
+        $this->idcompte = $idcompte;
+
+        return $this;
+    }
+
+    public function getPartenaire(): ?Partenaire
+    {
+        return $this->partenaire;
+    }
+
+    public function setPartenaire(?Partenaire $partenaire): self
+    {
+        $this->partenaire = $partenaire;
 
         return $this;
     }
